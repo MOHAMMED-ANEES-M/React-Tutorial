@@ -1,0 +1,10 @@
+.darktheme{
+    background-color: rgb(163, 211, 75);
+    color: rgb(32, 108, 4);
+    height: 100%;
+}
+
+.lighttheme{
+    background-color: rgb(6, 21, 0);
+    color: rgb(163, 211, 75);
+}
