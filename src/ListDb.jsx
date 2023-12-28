@@ -9,7 +9,7 @@ const ListDb = () => {
 
     let handleremove=async (id)=>{
         try{ 
-         let response=await axios.delete(`http://localhost:4000/delete/${id}`)
+         let response=await axios.delete(`http://localhost:5000/delete/${id}`)
          console.log(response);
          setrefresh(!refresh)
        }catch(err){
@@ -18,12 +18,34 @@ const ListDb = () => {
        }
        }
 
+       let handleLogout=()=>{
+        localStorage.removeItem('token');
+        setrefresh(!refresh)
+        window.location.reload();
+      }
+
+       let token = localStorage.getItem('token')
     useEffect(()=>{
 
-        let fetchdata=async ()=>{
-          let finded=await axios.get('http://localhost:4000/find')
+      
+      let fetchdata=async ()=>{
+     
+        try{
+        
+          if(!token){
+            return;
+          }
+          
+          let finded=await axios.get('http://localhost:5000/find',{
+            headers: {
+              Authorization: token
+            }
+          })
           setnewdata(finded.data)
           console.log(finded.data,'newdata');
+        } catch(error){
+          console.error('Error fetching data:', error);
+        }
         }
         fetchdata()
       },[refresh])
@@ -42,6 +64,9 @@ const ListDb = () => {
           <button className='btn btn-light ms-2' onClick={()=>handleremove(item._id)}>Delete</button>
           </div>
         ))}
+        <div className='m-auto w-25 text-center '>
+        <button className='btn btn-danger mt-5' onClick={handleLogout}>Logout</button>
+        </div>
     </div>
     </div>
   )

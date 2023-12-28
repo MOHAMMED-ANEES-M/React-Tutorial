@@ -19,7 +19,7 @@ const FormDb = () => {
         e.preventDefault()
         try{
 
-          let response=await axios.post('http://localhost:4000/add',data)
+          let response=await axios.post('http://localhost:5000/add',data)
           console.log(response,'res');
           if (response) {
             setrefresh(!refresh)
@@ -34,7 +34,7 @@ const FormDb = () => {
 
     let handleremove=async (id)=>{
      try{ 
-      let response=await axios.delete(`http://localhost:4000/delete/${id}`)
+      let response=await axios.delete(`http://localhost:5000/delete/${id}`)
       console.log(response);
       setrefresh(!refresh)
     }catch(err){
@@ -47,7 +47,7 @@ const FormDb = () => {
     useEffect(()=>{
 
       let fetchdata=async ()=>{
-        let finded=await axios.get('http://localhost:4000/find')
+        let finded=await axios.get('http://localhost:5000/find')
         setnewdata(finded.data)
         console.log(finded.data,'newdata');
       }

@@ -17,7 +17,7 @@ const UpdateDb = () => {
 
     let handlesubmit=async (e)=>{
         e.preventDefault()
-        let response=await axios.put(`http://localhost:4000/update/${id}`,data)
+        let response=await axios.put(`http://localhost:5000/update/${id}`,data)
         console.log(response);
         if (response) {
           setrefresh(!refresh)
@@ -28,7 +28,7 @@ const UpdateDb = () => {
 
     useEffect(()=>{
       let fetchdata=async ()=>{
-        let datas=await axios.get(`http://localhost:4000/findOne/${id}`)
+        let datas=await axios.get(`http://localhost:5000/findOne/${id}`)
         console.log(datas.data,'fetched');
         setnewdata(datas.data)
       }

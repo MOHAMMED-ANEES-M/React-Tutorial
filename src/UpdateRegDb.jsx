@@ -15,7 +15,7 @@ const UpdateRegDb = () => {
 
     let handlesubmit=async (e)=>{
         e.preventDefault()
-        let response=await axios.put(`http://localhost:4000/update/${id}`,data)
+        let response=await axios.put(`http://localhost:5000/update/${id}`,data)
         console.log(response);
         alert('Details updated')
         navigate('/listDb')

@@ -16,7 +16,7 @@ const RegisterPage = () => {
         e.preventDefault()
         try{
 
-          let response=await axios.post('http://localhost:4000/add',data)
+          let response=await axios.post('http://localhost:5000/add',data)
           console.log(response,'res');
           if(response){
             alert('Registered')

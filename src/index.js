@@ -32,6 +32,7 @@ import LoginPage from './LoginPage';
 import RegisterPage from './RegisterPage';
 import ListDb from './ListDb';
 import UpdateRegDb from './UpdateRegDb';
+import MessageApp from './MessageApp';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -64,16 +65,16 @@ root.render(
   </BrowserRouter>
 </Provider> */}
 
-{/* {<RegisterPage/>} */}
+{<MessageApp/>}
 
-  <BrowserRouter>
+  {/* <BrowserRouter>
   <Routes>
     <Route path='/' element={<RegisterPage/>}/>
     <Route path='/loginPage' element={<LoginPage/>}/>
     <Route path='/listDb' element={<ListDb/>}/>
     <Route path='/updateDb/:id' element={<UpdateRegDb/>}/>
   </Routes>
-  </BrowserRouter> 
+  </BrowserRouter>  */}
 
 
   {/* <BrowserRouter>
